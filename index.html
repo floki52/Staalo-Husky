@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Husky Center Staalo · Husky sled rides in Rovaniemi</title>
+  <meta name="description" content="Husky sled rides and kennel visits in Rovaniemi, Lapland. Meet our huskies and book your tour through our partners.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Brand colours (Lapland Warm) ===== */
+    :root {
+      --pine: #2F4A3A;
+      --cream: #EFE6D8;
+      --cream-light: #F8F3EA;
+      --amber: #D98E3A;
+      --amber-light: #E9A95E;
+      --amber-dark: #8A5216;
+      --charcoal: #2B2B2B;
+      --muted: #5E5548;
+      --muted-on-dark: #D8CFBF;
+      --placeholder: #DCD0BC;
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 700; line-height: 1.1; margin: 0; color: var(--pine); }
+    p { margin: 0; }
+    a { color: var(--pine); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 12px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-amber { background: var(--amber); color: var(--charcoal); }
+    .btn-amber:hover { background: var(--amber-light); }
+    .btn-outline { border: 2px solid var(--amber-light); color: var(--cream); padding: 12px 24px; }
+
+    /* ===== Header ===== */
+    .site-header .container {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 16px; padding-top: 20px; padding-bottom: 20px;
+    }
+    .logo img { height: 64px; width: auto; }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-weight: 600; }
+    .nav a { text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+    .nav .btn { padding: 10px 18px; font-size: 16px; }
+
+    /* ===== Photos / placeholders ===== */
+    .photo {
+      background: var(--placeholder);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 24px;
+      color: var(--muted); font-size: 16px;
+      overflow: hidden;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photo:has(img) { padding: 0; }
+
+    /* ===== Hero ===== */
+    .hero-photo { height: 440px; }
+    .hero-card {
+      background: var(--pine); color: var(--cream);
+      border-radius: 24px;
+      margin: -80px 32px 0; position: relative;
+      padding: 44px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px; align-items: center;
+    }
+    .eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 12px; }
+    .hero-card h1 { color: var(--cream); font-size: clamp(38px, 5vw, 56px); }
+    .hero-card p { color: var(--muted-on-dark); font-size: 19px; margin-bottom: 20px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    /* ===== Trust strip ===== */
+    .trust {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 40px;
+      text-align: center; padding: 32px 24px;
+    }
+    .trust strong { color: var(--pine); }
+    .trust span { color: var(--muted); }
+
+    /* ===== Sections ===== */
+    section { padding: 48px 0; }
+    .section-title { font-size: clamp(32px, 4vw, 42px); margin-bottom: 12px; }
+    .section-intro { color: var(--muted); font-size: 18px; margin-bottom: 32px; max-width: 640px; }
+    .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .card { background: var(--cream-light); border-radius: var(--radius); overflow: hidden; }
+    .card .photo { height: 200px; border-radius: 0; }
+    .card-body { padding: 22px; }
+    .card h3 { font-size: 26px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 16px; }
+
+    /* ===== About ===== */
+    .about { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; }
+    .about .photo { height: 360px; }
+    .about p { color: var(--muted); margin-bottom: 16px; }
+
+    /* ===== Booking ===== */
+    .partners { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .partner {
+      background: var(--cream-light); border: 2px solid var(--pine);
+      border-radius: var(--radius); padding: 28px; text-decoration: none;
+      display: flex; flex-direction: column; gap: 6px;
+      transition: transform .15s ease;
+    }
+    .partner:hover { transform: translateY(-3px); }
+    .partner .name { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: var(--pine); }
+    .partner .link { font-weight: 700; color: var(--amber-dark); }
+
+    /* ===== Footer ===== */
+    .site-footer { background: var(--pine); color: var(--muted-on-dark); margin-top: 24px; }
+    .site-footer .container {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;
+      gap: 32px; padding-top: 48px; padding-bottom: 48px;
+    }
+    .site-footer img { height: 80px; width: auto; }
+    .site-footer h4 { margin: 0 0 6px; color: var(--cream); font-size: 17px; }
+    .site-footer a { color: var(--amber-light); }
+    .site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+    .copyright { text-align: center; font-size: 14px; padding: 16px 24px 28px; color: var(--muted-on-dark); }
+
+    /* ===== Phones ===== */
+    @media (max-width: 640px) {
+      .hero-photo { height: 280px; }
+      .hero-card { margin: -48px 8px 0; padding: 28px; }
+      .logo img { height: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="#top"><img src="assets/logo-pine.png" alt="Husky Center Staalo"></a>
+      <nav class="nav" aria-label="Main menu">
+        <a href="#experiences">Experiences</a>
+        <a href="#about">About us</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-amber" href="#book">Book a tour</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <div class="container">
+      <!-- To use a real photo: put it in the assets folder and replace the text below with
+           <img src="assets/hero.jpg" alt="Husky sled team in the snowy forest"> -->
+      <div class="photo hero-photo">[Wide photo: sled team running through the snowy forest]</div>
+    </div>
+    <div class="container">
+      <div class="hero-card">
+        <div>
+          <div class="eyebrow">Husky sled rides in Rovaniemi</div>
+          <h1>Welcome to our husky family</h1>
+        </div>
+        <div>
+          <p>Ride through the quiet Lapland forest behind our happy huskies, then warm up and meet every dog by name.</p>
+          <div class="buttons">
+            <a class="btn btn-amber" href="#book">Book with our partners</a>
+            <a class="btn btn-outline" href="#about">Meet the dogs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TRUST STRIP ===== -->
+    <div class="trust">
+      <strong>98% recommend us on Facebook · 28 reviews</strong>
+      <span>Tours bookable through Safartica and Nordic Unique Travel</span>
+    </div>
+
+    <!-- ===== EXPERIENCES ===== -->
+    <section id="experiences">
+      <div class="container">
+        <h2 class="section-title center" style="text-align:center">What you can experience</h2>
+        <p class="section-intro center" style="text-align:center">Every visit is a little different, but the huskies are always the stars.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="photo">[Photo: guests on a sled]</div>
+            <div class="card-body">
+              <h3>Husky sled rides</h3>
+              <p>Drive your own team or sit back and enjoy the ride through the winter forest.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="photo">[Photo: husky close-up]</div>
+            <div class="card-body">
+              <h3>Meet our dogs</h3>
+              <p>Every husky has a name and a personality. Say hello, take photos and cuddle up.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="photo">[Photo: warm drinks by the fire]</div>
+            <div class="card-body">
+              <h3>Warm up by the fire</h3>
+              <p>After the ride, hear stories about kennel life while you warm your hands.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+      <div class="container about">
+        <div class="photo">[Photo: the team with the dogs]</div>
+        <div>
+          <h2 class="section-title">About Husky Center Staalo</h2>
+          <p>[Short story about Staalo: who runs the kennel, how many dogs live here and what makes it special. Two or three sentences.]</p>
+          <p>[A sentence about how you care for the dogs, for example daily training, rest days and lots of cuddles.]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BOOKING ===== -->
+    <section id="book">
+      <div class="container">
+        <h2 class="section-title">How to book</h2>
+        <p class="section-intro">Our tours are sold by our trusted partners. Choose one to see dates and prices.</p>
+        <div class="partners">
+          <!-- Replace # with the partner's tour page link -->
+          <a class="partner" href="#" target="_blank" rel="noopener">
+            <span class="name">Safartica</span>
+            <span class="link">See tours and book →</span>
+          </a>
+          <a class="partner" href="#" target="_blank" rel="noopener">
+            <span class="name">Nordic Unique Travel</span>
+            <span class="link">See tours and book →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <img src="assets/logo-cream.png" alt="Husky Center Staalo">
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>[ADDRESS], Rovaniemi</li>
+          <li><a href="tel:[PHONE]">[PHONE]</a></li>
+          <li><a href="mailto:[EMAIL]">[EMAIL]</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow us</h4>
+        <ul>
+          <!-- Replace # with your Facebook and Instagram page links -->
+          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© <span id="year">2026</span> Husky Center Staalo</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
