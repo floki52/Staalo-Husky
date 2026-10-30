@@ -121,6 +121,25 @@
     .about .photo { height: 360px; }
     .about p { color: var(--muted); margin-bottom: 16px; }
 
+    /* ===== Gallery ===== */
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .gallery-item { display: block; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: var(--placeholder); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
+
+    .lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(20, 28, 24, 0.94);
+      display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .lightbox[hidden] { display: none; }
+    .lb-img { max-width: 100%; max-height: 88vh; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+    .lightbox button { position: absolute; background: rgba(239, 230, 216, 0.15); color: var(--cream);
+      border: none; width: 52px; height: 52px; border-radius: 50%; font-size: 34px; line-height: 1; cursor: pointer; }
+    .lightbox button:hover { background: var(--amber); color: var(--charcoal); }
+    .lb-close { top: 16px; right: 16px; }
+    .lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
+    
     /* ===== Booking ===== */
     .partners { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
     .partner {
@@ -170,6 +189,7 @@
       <nav class="nav" aria-label="Main menu">
         <a href="#experiences">Experiences</a>
         <a href="#about">About us</a>
+        <a href="#gallery">Gallery</a>
         <a href="#follow">Follow us</a>
         <a class="btn btn-amber" href="#book">Book a tour</a>
       </nav>
@@ -248,6 +268,60 @@
         </div>
       </div>
     </section>
+    
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery">
+      <div class="container">
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-intro">A little taste of life at Staalo.</p>
+        <div class="gallery-grid">
+          <a class="gallery-item" href="assets/gallery/gallery-01-northern-lights-trees.jpg">
+            <img src="assets/gallery/gallery-01-northern-lights-trees-thumb.jpg" alt="Northern lights over snowy trees" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-02-puppies-peeking.jpg">
+            <img src="assets/gallery/gallery-02-puppies-peeking-thumb.jpg" alt="Two husky puppies peeking out from under a pallet" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-03-sled-team-sunset.jpg">
+            <img src="assets/gallery/gallery-03-sled-team-sunset-thumb.jpg" alt="Sled team on a forest trail at sunset" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-04-drone-winter-forest.jpg">
+            <img src="assets/gallery/gallery-04-drone-winter-forest-thumb.jpg" alt="Aerial view of the snowy Lapland forest" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-05-happy-husky.jpg">
+            <img src="assets/gallery/gallery-05-happy-husky-thumb.jpg" alt="Happy husky with its tongue out" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-06-northern-lights-kota.jpg">
+            <img src="assets/gallery/gallery-06-northern-lights-kota-thumb.jpg" alt="Northern lights over a glowing kota" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-07-huskies-resting.jpg">
+            <img src="assets/gallery/gallery-07-huskies-resting-thumb.jpg" alt="Two huskies resting in the snow" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-08-winter-sunset.jpg">
+            <img src="assets/gallery/gallery-08-winter-sunset-thumb.jpg" alt="Colourful winter sunset over a snowy field" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-09-husky-in-coat.jpg">
+            <img src="assets/gallery/gallery-09-husky-in-coat-thumb.jpg" alt="Husky in a warm orange coat on the trail" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-10-puppies-doghouse.jpg">
+            <img src="assets/gallery/gallery-10-puppies-doghouse-thumb.jpg" alt="Husky puppies in their doghouse" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-11-drone-sunrise.jpg">
+            <img src="assets/gallery/gallery-11-drone-sunrise-thumb.jpg" alt="Winter sunrise over the frozen landscape" loading="lazy" width="600" height="600">
+          </a>
+          <a class="gallery-item" href="assets/gallery/gallery-12-sled-team-forest.jpg">
+            <img src="assets/gallery/gallery-12-sled-team-forest-thumb.jpg" alt="Sled team on a snowy forest trail" loading="lazy" width="600" height="600">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Large photo viewer (opens when a gallery photo is clicked) -->
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lb-close" aria-label="Close">&times;</button>
+      <button class="lb-prev" aria-label="Previous photo">&#8249;</button>
+      <img class="lb-img" alt="">
+      <button class="lb-next" aria-label="Next photo">&#8250;</button>
+    </div>
 
     <!-- ===== BOOKING ===== -->
     <section id="book">
@@ -294,6 +368,32 @@
   
 
   <script>
+        // Gallery: click a photo to see it large
+    (function () {
+      const items = Array.from(document.querySelectorAll('.gallery-item'));
+      const box = document.getElementById('lightbox');
+      if (!items.length || !box) return;
+      const img = box.querySelector('.lb-img');
+      let i = 0;
+      function show(n) {
+        i = (n + items.length) % items.length;
+        img.src = items[i].href;
+        img.alt = items[i].querySelector('img').alt;
+      }
+      function open(n) { show(n); box.hidden = false; document.body.style.overflow = 'hidden'; }
+      function close() { box.hidden = true; document.body.style.overflow = ''; }
+      items.forEach((a, n) => a.addEventListener('click', e => { e.preventDefault(); open(n); }));
+      box.querySelector('.lb-close').addEventListener('click', close);
+      box.querySelector('.lb-prev').addEventListener('click', () => show(i - 1));
+      box.querySelector('.lb-next').addEventListener('click', () => show(i + 1));
+      box.addEventListener('click', e => { if (e.target === box) close(); });
+      document.addEventListener('keydown', e => {
+        if (box.hidden) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(i - 1);
+        if (e.key === 'ArrowRight') show(i + 1);
+      });
+    })();
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
